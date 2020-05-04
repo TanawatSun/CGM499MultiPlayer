@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 121}
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
-  controlID: 97
+  controlID: 60
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,8 +141,8 @@ MonoBehaviour:
     y: 0
     width: 864
     height: 312
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 271}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 1
-  controlID: 145
+  controlID: 124
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 271}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 146
+  controlID: 125
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -546,9 +546,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.8545976, y: 0.23851638, z: -1.731747}
+    m_Target: {x: 889.3035, y: 375.97736, z: -319.20303}
     speed: 2
-    m_Value: {x: -2.8545976, y: 0.23851638, z: -1.731747}
+    m_Value: {x: 899.52185, y: 377.55927, z: -312.88815}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -598,9 +598,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 17.914871
+    m_Target: 1467.0964
     speed: 2
-    m_Value: 17.914871
+    m_Value: 1403.92
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -720,21 +720,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 28d9ffff3ed9ffff0cdaffffb6dcffffccdcffff9addffff8cdfffffa2dfffff70e0ffff46e2ffff5ce2ffff2ae3ffff98e7ffffaee7ffff7ce8ffffa2ebffffb8ebffff86ecffff6eeeffff84eeffff52efffff6cfbffffba360000
+      m_ExpandedIDs: ecd3ffff6cfbffffc2360000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Canvas
-        m_OriginalName: Canvas
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 14010
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 14}
       m_SearchString: 
@@ -782,20 +782,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Scripts
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: G:\OnlineGameProject\SocketIO-Realtime\Unity\SocketIO-RealTime
+  m_LastProjectPath: G:\UnityGits\CGM499MultiPlayer\CGM499MultiPlayer\Unity\SocketIO-RealTime
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c6350000
     m_LastClickedID: 13766
-    m_ExpandedIDs: 000000003e37000040370000423700004437000046370000483700004a3700004c3700004e370000
+    m_ExpandedIDs: 000000004e37000050370000523700005437000056370000583700005a3700005c3700005e370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -823,7 +822,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000003e37000040370000423700004437000046370000483700004a3700004c3700004e370000
+    m_ExpandedIDs: ffffffff000000004e37000050370000523700005437000056370000583700005a3700005c3700005e370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
