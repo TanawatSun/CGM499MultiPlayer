@@ -27,9 +27,12 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
@@ -69,11 +72,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11468}
     - Class: 114
+      Script: {instanceID: 11542}
+    - Class: 114
       Script: {instanceID: 12002}
     - Class: 114
       Script: {instanceID: 12196}
     - Class: 114
       Script: {instanceID: 12430}
+    - Class: 114
+      Script: {instanceID: 12548}
+    - Class: 114
+      Script: {instanceID: 12788}
     - Class: 114
       Script: {instanceID: 13070}
     - Class: 114
@@ -365,7 +374,7 @@ ScriptsOnlyBuild:
     className: NetworkTransformVisualizer
   - hash:
       serializedVersion: 2
-      Hash: be5a056586bec9944f7dee4fa3e09f1c
+      Hash: 708d3c0a4a477cecb313e42508f16488
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ConnectionManager
@@ -702,4 +711,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/RealTime.unity
-  playerPath: G:/OnlineGameProject/SocketIO-Realtime/Unity/SocketIO-RealTime/MyBuilds/TestCam/SocketIO-RealTime.exe
+  playerPath: G:/UnityGits/CGM499MultiPlayer/CGM499MultiPlayer/Unity/SocketIO-RealTime/MyBuilds/TestUI/SocketIO-RealTime.exe

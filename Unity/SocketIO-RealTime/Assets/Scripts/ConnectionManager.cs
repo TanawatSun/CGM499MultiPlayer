@@ -95,7 +95,7 @@ public class ConnectionManager : MonoBehaviour
     {
         switch(connectionState)
         {
-            case ConnectionState.Disconnected: 
+            /*case ConnectionState.Disconnected: 
             {
                 if (GUILayout.Button("Connect"))
                 {
@@ -133,22 +133,39 @@ public class ConnectionManager : MonoBehaviour
                     CreateRoom(roomName);
                 }
                 break;
-            }
+            }*/
 
             case ConnectionState.RoleJoin:
             {
-                foreach(var _roomName in roomIDGroup.roomIDList)
+
+                
+                foreach (var _roomName in roomIDGroup.roomIDList)
                 {
-                    if(GUILayout.Button(_roomName))
+                   /* if(GUILayout.Button(_roomName))
                     {
                         roomName = _roomName;
                         JoinRoom(_roomName);
-                    }
+                    }*/
+                        //for (int i = 0; i < roomIDGroup.roomIDList.Count; i++)
+                        //{
+
+                            Button newButton = Instantiate(button);
+                            newButton.transform.parent = panel.transform;
+                            newButton.onClick.AddListener(() => JoinRoom(_roomName));
+                            newButton.transform.FindChild("Text").GetComponent<Text>().text = _roomName; 
+                            newButton = GetComponent<Button>();
+                            
+                            roomName = _roomName;
+                            connectionState = ConnectionState.InRoom;
+                       // }
+                        
                 }
+
+                   
                 break;
             }
 
-            case ConnectionState.InRoom:
+           /* case ConnectionState.InRoom:
             {
                 GUILayout.TextField(ownerID);
                 if(GUILayout.Button("LeaveRoom"))
@@ -156,16 +173,84 @@ public class ConnectionManager : MonoBehaviour
                     LeaveRoom();
                 }
                 break;
-            }
+            }*/
         }
     }
+    [SerializeField] GameObject bg_Connect;
+    [SerializeField] GameObject bg_CreateOrJoin;
+    [SerializeField] GameObject bg_Create;
+    [SerializeField] GameObject bg_Join;
 
-   
+    public void OnClickConnect()
+    {
+        socket.Connect();
+        if (socket.IsConnected)
+        {
+            connectionState = ConnectionState.Connected;
+        }
+        bg_Connect.SetActive(false);
+        bg_CreateOrJoin.SetActive(true);
+
+    }
+
+    public void OnClickCreateRoom()
+    {
+        connectionState = ConnectionState.RoleCreate;
+        bg_CreateOrJoin.SetActive(false);
+        bg_Create.SetActive(true);
+    }
+
+    public void OnPlayerClickJoinRoom()
+    {
+        connectionState = ConnectionState.RoleJoin;
+        socket.Emit("OnClientFetchRoomList");
+        bg_Join.SetActive(true);
+        bg_CreateOrJoin.SetActive(false);
+        //MyJoinRoom();
+    }
+
+    [SerializeField] InputField inputField;
+    public void CreateRoom()
+    {
+
+        roomName = inputField.text;
+        CreateRoom(roomName);
+        bg_Create.SetActive(false);
+
+    }
+
+    [SerializeField] Button button;
+    [SerializeField] GameObject panel;
+    public void MyJoinRoom()
+    {
+        foreach (var _roomName in roomIDGroup.roomIDList)
+        {
+            Button newButton = Instantiate(button);
+            newButton.transform.parent = panel.transform;
+            newButton.onClick.AddListener(() => JoinRoom(_roomName));
+            newButton.transform.FindChild("Text").GetComponent<Text>().text = _roomName;
+            newButton = GetComponent<Button>();
+
+            roomName = _roomName;
+        }
+    }
+    
+    private void Awake()
+    {
+        if(inputField==null)
+        {
+            inputField = GameObject.Find("InputField For Create Room").GetComponent<InputField>();
+        }
+        if(panel==null)
+        {
+            panel = GameObject.Find("Panel Room List");
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //inputField = GetComponent<InputField>();
 
         socket = GetComponent<SocketIOComponent>();
 
@@ -211,7 +296,8 @@ public class ConnectionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("room count : "+roomIDGroup.roomIDList.Count);
+
         DetectPlayerConnect();
         UpdateAllCharacter();
         WinCheck();
@@ -221,10 +307,10 @@ public class ConnectionManager : MonoBehaviour
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("name", ownerID);
             JSONObject jsonObj = new JSONObject(data);
-            socket.Emit("Fire",jsonObj);
-           
+            socket.Emit("Fire", jsonObj);
+
         }
-        if(hit)
+        if (hit)
         {
             if (FindObjectOfType<Bullet>().hitName == ownerID)
             {
@@ -232,11 +318,9 @@ public class ConnectionManager : MonoBehaviour
             }
             hit = false;
         }
+
        
-
-
     }
-    
 
     private void FixedUpdate()
     {
@@ -428,7 +512,7 @@ public class ConnectionManager : MonoBehaviour
         JSONObject jsonObj = new JSONObject(data);
 
         socket.Emit("OnClientJoinRoom", jsonObj);
-        
+        bg_Join.SetActive(false);
     }
 
     public void LeaveRoom()
@@ -436,6 +520,7 @@ public class ConnectionManager : MonoBehaviour
         connectionState = ConnectionState.Connected;
         roomName = "";
         socket.Emit("OnClientLeaveRoom");
+        bg_CreateOrJoin.SetActive(true);
     }
 
     private void FetchPlayerList()
@@ -459,9 +544,7 @@ public class ConnectionManager : MonoBehaviour
 
     IEnumerator WaitForDisconnect()
     {
-        Time.timeScale = 0;
-        yield return new WaitForSeconds(5f);
-        Time.timeScale = 1;
+        yield return new WaitForSeconds(2f);
         LeaveRoom();
     }
 
