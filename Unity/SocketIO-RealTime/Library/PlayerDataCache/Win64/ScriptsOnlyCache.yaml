@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - Player
     - SocketIO.SocketIOComponent
     Unity.2D.Tilemap.Editor.dll:
+    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
@@ -55,9 +56,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 58
       Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -93,6 +102,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13682}
     - Class: 114
       Script: {instanceID: 13716}
+    - Class: 114
+      Script: {instanceID: 17206}
+    - Class: 114
+      Script: {instanceID: 17218}
+    - Class: 114
+      Script: {instanceID: 17220}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
