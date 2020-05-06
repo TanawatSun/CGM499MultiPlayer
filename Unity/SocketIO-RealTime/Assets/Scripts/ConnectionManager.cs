@@ -520,7 +520,10 @@ public class ConnectionManager : MonoBehaviour
         connectionState = ConnectionState.Connected;
         roomName = "";
         socket.Emit("OnClientLeaveRoom");
+        socket.Emit("OnClientFetchRoomList");
         bg_CreateOrJoin.SetActive(true);
+        winText.SetActive(false);
+        loseText.SetActive(false);
     }
 
     private void FetchPlayerList()
